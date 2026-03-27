@@ -1,0 +1,166 @@
+/* style.css */
+:root {
+    --bg-color: #fdfdfd; /* Çok hafif bir gri/beyaz */
+    --text-color: #1f1f1f;
+    --sidebar-bg: #f8fafc;
+    --input-bg: #e2e8f0; /* Biraz daha belirgin giriş alanı rengi */
+    --border-color: #e2e8f0;
+    --accent-color: #3b82f6; /* Canlı bir mavi */
+    --accent-hover: #2563eb;
+    --gradient-start: #f1f5f9; /* Hafif arka plan gradyan başlangıcı */
+    --gradient-end: #ffffff; /* Hafif arka plan gradyan bitişi */
+}
+
+[data-theme="dark"] {
+    --bg-color: #111112;
+    --text-color: #e2e8f0;
+    --sidebar-bg: #1e1f21;
+    --input-bg: #1e1f21;
+    --border-color: #334155;
+    --accent-color: #60a5fa;
+    --accent-hover: #93c5fd;
+    --gradient-start: #111112;
+    --gradient-end: #1e1f21;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-color);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Sidebar (Değişmedi) */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    transition: transform 0.3s ease;
+    border-right: 1px solid var(--border-color);
+    padding: 20px;
+}
+.sidebar.collapsed {
+    transform: translateX(-100%);
+    position: absolute;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.2s; /* Hafif animasyon */
+}
+.icon-btn:hover {
+    background-color: var(--input-bg);
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 10px;
+    color: var(--accent-color); /* Logoya renk kattık */
+}
+
+/* Chat & Welcome Area */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 0 20px; /* Alttan daha az padding */
+    overflow-y: auto;
+}
+
+.welcome-screen h2 {
+    font-size: 36px; /* Biraz daha büyük */
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.result-content {
+    width: 100%;
+    max-width: 800px;
+    line-height: 1.6;
+}
+.hidden { display: none; }
+
+/* Input Area - Bu kısım yukarı taşındı */
+.input-area {
+    padding: 10px 20px 30px 20px; /* Alttan daha fazla padding (imza için yer) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid var(--border-color); /* Hafif bir sınır */
+    background-color: var(--bg-color); /* Arka planı sabitliyoruz */
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: var(--input-bg);
+    border-radius: 30px;
+    padding: 5px 15px;
+    width: 100%;
+    max-width: 800px;
+    border: 2px solid transparent; /* Varsayılan şeffaf sınır */
+    transition: border-color 0.2s;
+}
+.input-wrapper:focus-within {
+    border-color: var(--accent-color); /* Odaklanınca renkleniyor */
+}
+
+.input-wrapper input {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    color: var(--text-color);
+    outline: none;
+}
+
+.send-btn {
+    color: var(--accent-color);
+    font-size: 22px;
+}
+.send-btn:hover {
+    color: var(--accent-hover);
+}
+
+.signature {
+    margin-top: 20px; /* Giriş alanından daha uzakta */
+    font-size: 10px;
+    color: #888;
+    letter-spacing: 1px;
+    text-align: center;
+}
