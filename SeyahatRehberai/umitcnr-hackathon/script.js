@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // UI Updates for Loading
         welcomeScreen.classList.add('hidden');
         resultContent.classList.remove('hidden');
-        document.body.style.backgroundImage = 'none'; // Reset before loading new
+        document.body.style.backgroundImage = ''; // Clear inline style to allow CSS gradient fallback
         document.body.classList.remove('bg-active');
         htmlEl.classList.add('has-results'); // Allows input to fall to bottom
 

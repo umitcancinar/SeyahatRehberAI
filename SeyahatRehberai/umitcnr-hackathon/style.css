@@ -35,7 +35,8 @@
 }
 
 body {
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    background-color: var(--bg-color);
+    background-image: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
