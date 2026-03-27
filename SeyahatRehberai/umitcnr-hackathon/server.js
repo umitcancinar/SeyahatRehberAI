@@ -7,7 +7,7 @@ const app = express();
 const PORT = 3000;
 
 // Senin API Anahtarın ve Gemini 3 Flash model ismini kalbe gömdük
-const API_KEY = "AIzaSyBltY7PeZ2f5ZZbfhtPoWcZstv4jNiUwbU";
+const API_KEY = "*******";
 const MODEL_NAME = "gemini-3-flash-preview"; 
 
 const genAI = new GoogleGenerativeAI(API_KEY);
