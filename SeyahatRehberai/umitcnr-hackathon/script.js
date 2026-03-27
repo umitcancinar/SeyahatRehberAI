@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cityInput.value = '';
 
         try {
-            const response = await fetch('http://localhost:3000/api/generate-guide', {
+            const response = await fetch('https://seyahatrehberai.onrender.com/api/generate-guide', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ city: currentCity })
