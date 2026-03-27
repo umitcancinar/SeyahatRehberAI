@@ -1,30 +1,30 @@
 /* style.css */
 :root {
     --bg-color: #fdfdfd; 
-    --text-color: #1f1f1f;
-    --sidebar-bg: rgba(248, 250, 252, 0.85); /* Glassmorphism sidebar */
-    --input-bg: rgba(255, 255, 255, 0.9);
-    --border-color: rgba(226, 232, 240, 0.5);
+    --text-color: #1e293b; 
+    --sidebar-bg: rgba(255, 255, 255, 0.9); 
+    --input-bg: rgba(255, 255, 255, 0.95);
+    --border-color: rgba(226, 232, 240, 0.8);
     --accent-color: #3b82f6; 
     --accent-hover: #2563eb;
-    --gradient-start: #f1f5f9; 
+    --gradient-start: #f8fafc; 
     --gradient-end: #ffffff; 
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.3);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.5);
 }
 
 [data-theme="dark"] {
     --bg-color: #111112;
-    --text-color: #e2e8f0;
-    --sidebar-bg: rgba(30, 31, 33, 0.85);
-    --input-bg: rgba(30, 31, 33, 0.9);
+    --text-color: #f8fafc;
+    --sidebar-bg: rgba(15, 15, 17, 0.9);
+    --input-bg: rgba(20, 21, 23, 0.95);
     --border-color: rgba(51, 65, 85, 0.5);
     --accent-color: #60a5fa;
     --accent-hover: #93c5fd;
     --gradient-start: #111112;
     --gradient-end: #1e1f21;
-    --glass-bg: rgba(17, 17, 18, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(15, 15, 17, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.15);
 }
 
 * {
@@ -51,13 +51,16 @@ body::before {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background: inherit;
-    filter: blur(8px) brightness(0.6); /* Blurs and darkens the dynamic background slightly */
+    filter: brightness(0.7); /* Removed blur, perfectly clear image */
     z-index: -1;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out, filter 0.3s;
+}
+html[data-theme="dark"] body::before {
+    filter: brightness(0.4); /* Darken image in dark mode to keep text readable */
 }
 body.bg-active::before {
-    opacity: 1; /* Show blur overlay only when we have a background image */
+    opacity: 1; 
 }
 
 /* Sidebar */
@@ -253,7 +256,7 @@ html.has-results .chat-container {
     flex-shrink: 0;
 }
 /* When first opened, input area is pushed up */
-body:not(.has-results) .input-area {
+html:not(.has-results) .input-area {
     margin-bottom: 25vh;
 }
 
